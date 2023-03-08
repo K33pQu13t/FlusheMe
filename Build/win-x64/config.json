@@ -1,0 +1,21 @@
+{
+  "daysAwayToProcess": 5,
+  "autoClearOnProcessed": false,
+  "lastRunDate": "08.03.2023 19:47:26",
+  "browserCleaningConfig": {
+    "daysAwayToProcess": null,
+    "autoClearOnProcessed": null,
+    "cleanFirefox": true,
+    "cleanGoogleChrome": true
+  },
+  "appExecutionConfig": {
+    "daysAwayToProcess": null,
+    "autoClearOnProcessed": null,
+    "runConfigs": []
+  },
+  "fileCleaningConfig": {
+    "daysAwayToProcess": null,
+    "autoClearOnProcessed": null,
+    "filePathsToDelete": []
+  }
+}
