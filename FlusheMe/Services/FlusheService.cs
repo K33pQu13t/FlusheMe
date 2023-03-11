@@ -1,21 +1,27 @@
-﻿using FlusheMe.DTO;
+﻿using FlusheMe.Configuration;
+using FlusheMe.DTO;
 using FlusheMe.DTO.Cleaners.Browsers;
 using FlusheMe.DTO.Cleaners.Files;
 using FlusheMe.DTO.Executors;
-using FlusheMe.Configuration;
 using FlusheMe.Services.Directors;
 using FlusheMe.Services.ResponsibilityChain;
 
 namespace FlusheMe.Services;
 
-public class FlushService
+/// <summary>
+/// Service for flushe away data
+/// </summary>
+public class FlusheService
 {
     private readonly BrowserCleaningDirectorService _browserCleanerService = new();
     private readonly AppExecutionDirectorService _appExecutionService = new();
     private readonly FileCleaningDirectorService _fileCleanerDirectorService = new();
     private readonly ConfigCleaningDirectorService _configCleaningDirectorService = new();
 
-    public void Flush()
+    /// <summary>
+    /// Makes flushe actions according current configuration
+    /// </summary>
+    public void Flushe()
     {
         ContextConfig contextConfig = ContextConfig.GetInstance();
         AppConfig appConfig = contextConfig.GetCurrentConfig();

@@ -9,24 +9,34 @@ public class ContextConfig
     /// <summary>
     /// Name of config file
     /// </summary>
-    public const string ConfigName = "config.json";
+    public const string ConfigFileName = "config.json";
 
     /// <summary>
     /// Path to app directory
     /// </summary>
     public static string AppDirectory { get; private set; } = string.Empty;
 
-    private static string ConfigFilePath => Path.Combine(AppDirectory, ConfigName);
+    /// <summary>
+    /// Path to app config file
+    /// </summary>
+    private static string ConfigFilePath => Path.Combine(AppDirectory, ConfigFileName);
 
     /// <summary>
     /// If true then no need to check dates to perform actions, perform them anyway
     /// </summary>
     public bool IsForcePerform { get; set; }
 
-    private ContextConfig()
-    {
-    }
+    /// <summary>
+    /// True if console is shown
+    /// </summary>
+    public bool IsConsoleShown { get; set; }
 
+    private ContextConfig() { }
+
+    /// <summary>
+    /// Get cpnfig instance
+    /// </summary>
+    /// <returns></returns>
     public static ContextConfig GetInstance()
     {
         if (_instance != null)
@@ -54,6 +64,10 @@ public class ContextConfig
         return config;
     }
 
+    /// <summary>
+    /// Saves config
+    /// </summary>
+    /// <param name="config"></param>
     static public void SetConfig(AppConfig config)
     {
         JsonSerialization.Serialize(ConfigFilePath, config);
