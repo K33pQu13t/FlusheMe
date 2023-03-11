@@ -11,7 +11,13 @@ A configurable program which would run each time OS ran, check if it is time to 
 - Run external programms, with possibility to pass arguments, open folders, web-links, so it's free to expand any scenarios you would like
 - Clear configuration sections after executing so it's unable to anybody to look which exactly configuration was executed
 
-Just add this program to startup, and setup [configuration](#configurations) by your needs.
+Just add this program to startup (do not forget to set **run arguments** described in [syntax](#syntax) section), and setup [configuration](#configurations) by your needs.
+
+For now it's performing actions in this order:
+
+Clear browsers data **->** execute apps **->** clear files and directories **->** clear config file.
+
+May be it would be possible to configure it's order in the future.
 
 <br><br>
 
@@ -21,7 +27,9 @@ If run with no arguments - just shows a link to documentation in order you don't
 
 To perform actions described in configurations, run it with argument `--perform` or `-p`. That doesn't mean what all configures would be performed, they would according to [daysAwayToProcess](#daysawaytoprocess) option check. 
 
-You can add argument `--force` or `-f` to skip that check and perform whole configurations anyway.
+You can add argument `--force` or `-f` to skip days check and perform whole configurations anyway.
+
+If you want to hide application window (you probably do), just pass argument `--silent` or `-s`. By default window is shown in order to inform you about syntax if you didn't know it or forget it.
 
 If some step could not be performed (like, one of paths you specified to delete does not exist), then it just skips it, so whole execution would be processed as much as possible with **no errors** be throwen.
 
@@ -31,7 +39,7 @@ Be noticed what when you add this program to startup, you **need to pass** `--pe
 
 # Configurations
 
-Config is stored in config.js file. If you deleted it, it would be created on start with default options.
+Config is stored in config.json file. If you deleted it, it would be created on start with default options.
 
 Let's look around options.
 
@@ -57,7 +65,7 @@ It counts calendar days without time, so, if it is, for example, setted to `5`, 
 
 *Possible values: `null`, `false` or `true`*
 
-That option specifies should that config section be cleared after execution. Setting this global option to `true` would mean to clear **WHOLE** configs after **ANY** of configs executed. In concrete config section that option setted to `true` would mean clear only that concrete section. `false` of `null` value make no effects.
+That option specifies should that config section be cleared after execution. Setting this global option to `true` would mean to clear **WHOLE** configs after **ANY** of configs executed. In concrete config section that option setted to `true` would mean clear only that concrete section. `false` or `null` value make no effects.
 
 <br>
 
