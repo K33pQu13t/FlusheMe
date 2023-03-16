@@ -25,10 +25,10 @@ public class FileCleaningDirectorService : IResponsibilityChainHandlerDirector<F
             return null;
         }
 
-        ResponsibilityChainHandler? chainHandler = new();
+        ResponsibilityChainHandler chainHandler = new();
         foreach (FilePathToDeleteConfigDto filePathConfigDto in configDto.FilePathsToDelete)
         {
-            chainHandler?.AddHandlerToEndOfChain(new FileDeletingResponsibilityChainService(filePathConfigDto));
+            chainHandler.AddHandlerToEndOfChain(new FileDeletingResponsibilityChainService(filePathConfigDto));
         }
 
         return chainHandler;

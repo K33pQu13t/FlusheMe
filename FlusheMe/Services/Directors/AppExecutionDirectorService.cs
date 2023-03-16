@@ -25,10 +25,10 @@ public class AppExecutionDirectorService : IResponsibilityChainHandlerDirector<A
             return null;
         }
 
-        ResponsibilityChainHandler? chainHandler = new();
+        ResponsibilityChainHandler chainHandler = new();
         foreach (var runConfig in configDto.RunConfigs)
         {
-            chainHandler?.AddHandlerToEndOfChain(new RunAppResponsibilityChainService(runConfig));
+            chainHandler.AddHandlerToEndOfChain(new RunAppResponsibilityChainService(runConfig));
         }
 
         return chainHandler;
